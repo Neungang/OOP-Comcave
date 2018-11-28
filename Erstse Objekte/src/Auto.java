@@ -10,6 +10,7 @@ public class Auto {
 	private double tankVolumen = 60;
 	private double verbrauch = 8;
 	private double reichweite;
+	String passwort = "Passwort";
 
 	// Methoden = Fähigkeiten
 
@@ -111,5 +112,13 @@ public class Auto {
 	
 	int getAnzahlSitze() {
 		return this.anzahlSitze;
+	}
+	// Fehler auslesen
+	String fehlerAuslesen(String passwort) {
+		//Wenn this.passwort = = Passwort
+		if(this.passwort == passwort)
+			return "Keine Fehler";
+		else
+			return "Passwort falsch!";
 	}
 }

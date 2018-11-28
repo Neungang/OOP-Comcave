@@ -28,6 +28,7 @@ public class Main {
 		auto1.setKW(150);
 		// Auto1 KW wieder ausgeben
 		System.out.println(auto1.getKw());
+		System.out.println(auto1.fehlerAuslesen("passwort"));;
 		
 	}
 
