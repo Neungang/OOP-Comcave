@@ -40,13 +40,14 @@ public class Main {
 			System.out.println(" * Multiplikation");
 			System.out.println(" / Division");
 			System.out.println(" % Rest Bestimmung");
+			System.out.println("! Fakultaet");
 			
 			//Lese Operanden ein
 			System.out.print("Operation: ");
 			char operator = derScanner.next().charAt(0);
 			System.out.print("Zahl 1: ");
 			double eingabe1 = derScanner.nextDouble();
-			System.out.println("Zahl 2: ");
+			System.out.print("Zahl 2: ");
 			double eingabe2 = derScanner.nextDouble();
 			
 			// Rufe entsprechende Methode auf
@@ -72,11 +73,21 @@ public class Main {
 				System.out.println(derRechner.modulo(eingabe1, eingabe2));
 				
 				break;
+			case '!':
+				System.out.println(derRechner.fakultaet((int) eingabe1));
 			default:
 				
 				break;
 			}
-			
+			System.out.println("wollen Sie noch eine Berechnung machen?");
+			System.out.print("'j' für ja und 'n' für nein: ");
+			char yesOrNo = derScanner.next().charAt(0);
+			if(yesOrNo == 'j') {
+				continue;
+			}
+			else if(yesOrNo == 'n'){
+				break;
+			}
 			
 			/*
 			 * Wir wollen:
@@ -91,7 +102,6 @@ public class Main {
 			 * 		wenn ja, Programm soll nochmal ausgeführt werden.
 			 * 		wenn nein, Programm soll beendet werden
 			 */
-			
 			break;
 		}
 	}
