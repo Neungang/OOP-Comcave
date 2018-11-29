@@ -11,7 +11,7 @@ public class Auto {
 	private double verbrauch = 8;
 	private double reichweite;
 	private String passwort = "Passwort";
-	double tankstand = tankVolumen;
+	private double tankstand;
 
 	// Methoden = Fähigkeiten
 
@@ -42,6 +42,7 @@ public class Auto {
 		else
 			this.hubRaum = 0;
 		this.tankstand = this.tankVolumen;
+
 
 	}
 
@@ -133,17 +134,31 @@ public class Auto {
 	// Berechnet tankstand neu
 
 	// Nutzen sie dazu den verbrauch
+//	void fahre(double strecke) {
+//		double verbrauchneu = this.tankstand - this.verbrauch * strecke / 100;
+//		
+//		if (verbrauchneu >= 0) {
+//			System.out.println("Sie können fahren!");		
+//			this.tankstand -= this.verbrauch * strecke / 100;
+//		}else {
+//			System.out.println("ist leider nicht möglich!");
+//		}
+//	}
+
 	void fahre(double strecke) {
-		double verbrauchneu = this.tankstand - this.verbrauch * strecke / 100;
-		
-		if (verbrauchneu >= 0) {
-			System.out.println("Sie können fahren!");		
-			this.tankstand -= this.verbrauch * strecke / 100;
-		}else {
-			System.out.println("ist leider nicht möglich!");
+		berechneReichweite();
+		if(strecke <= reichweite) {
+			this.reichweite -= strecke;
+			this.tankstand -= strecke * this.verbrauch/ 100; 
+			System.out.println("Sie sind " + strecke + " km gefahren");
+		}
+		else {
+			System.out.println((" Sie können nur " + this.reichweite + " km fahren."));
+			this.reichweite = 0;
+			this.tankstand = 0;
 		}
 	}
-
+	
 	// Methode tanke()
 
 	// nimmt eine Anzahl an litern
@@ -151,8 +166,8 @@ public class Auto {
 	// fügt sie dem Tankstand hinzu
 
 	// beachten sie auch das Tankvolumen
-	void tank(double anzahlLiter) {
-		if ((tankstand + anzahlLiter) <= tankVolumen) {
+	void tanke(double anzahlLiter) {
+		if ((this.tankstand + anzahlLiter) <= tankVolumen) {
 			System.out.println("Sie können " + anzahlLiter + " Liter tanken!");
 //			tankstand = tankstand + anzahlLiter;
 			this.tankstand += anzahlLiter;

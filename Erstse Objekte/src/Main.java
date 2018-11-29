@@ -30,10 +30,10 @@ public class Main {
 //		// Auto1 KW wieder ausgeben
 //		System.out.println(auto1.getKw());
 //		System.out.println(auto1.fehlerAuslesen("passwort"));;
-		
+		auto1.berechneReichweite();
 		auto1.fahre(400);
-		auto1.fahre(50);
-		auto1.tank(200);
+		auto1.fahre(5);
+		auto1.tanke(200);
 		auto1.fahre(400);
 		
 	}
