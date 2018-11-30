@@ -40,7 +40,6 @@ public class Main {
 			System.out.println(" * Multiplikation");
 			System.out.println(" / Division");
 			System.out.println(" % Rest Bestimmung");
-			System.out.println("! Fakultaet");
 			
 			//Lese Operanden ein
 			System.out.print("Operation: ");
@@ -73,12 +72,22 @@ public class Main {
 				System.out.println(derRechner.modulo(eingabe1, eingabe2));
 				
 				break;
-			case '!':
-				System.out.println(derRechner.fakultaet((int) eingabe1));
+			
 			default:
 				
 				break;
 			}
+			System.out.print("wählen Sie ein Operator: ");
+			System.out.println("! Fakultaet");
+			 char operation1 = derScanner.next().charAt(0);
+			 System.out.print("Wählen Sie ein Zahl: ");
+			 double eingabe = derScanner.nextDouble();
+			 switch(operation1) {
+			 case '!':
+					System.out.println(derRechner.fakultaet((int) eingabe));
+					break;
+			 
+			 }
 			System.out.println("wollen Sie noch eine Berechnung machen?");
 			System.out.print("'j' für ja und 'n' für nein: ");
 			char yesOrNo = derScanner.next().charAt(0);

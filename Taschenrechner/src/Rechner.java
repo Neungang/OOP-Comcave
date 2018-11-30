@@ -35,10 +35,10 @@ public class Rechner {
 		System.out.print(eingabe1 + " % " + eingabe2 + " = ");
 		return eingabe1 % eingabe2;
 	}
-	// fakutät
+	// fakultät
 	int fakultaet(int eingabe) {
-		int n = eingabe;
-		for(int i = eingabe; i > 1; i--) {
+		int n = 1;
+		for(int i = 1; i <= n; i--) {
 			n *= (n -1);
 		}
 		System.out.print(eingabe + "!" + " = ");
