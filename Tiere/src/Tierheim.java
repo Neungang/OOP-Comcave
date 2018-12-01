@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 
 public class Tierheim {
 	// Attribute
-	private Hund hund1 = new Hund();
+	private Hund hund1;
+	private ArrayList<Hund> hunde;
 	// Methode
 	public void start() {
 		// Unser komplettes Programm werden wir hier schreiben
@@ -10,9 +12,9 @@ public class Tierheim {
 		schließeTierheim();
 	}
 	private void nehmeNeuenHundAuf() {
-		hund1 = new Hund();
-		hund1.setzeAttribute("Hasso","Borde Collie", "Schwarz", 'm', 80);
+		hund1 = new Hund("Hasso","Borde Collie", "Schwarz", 'm', 80);
 		System.out.println(hund1.getName() + " wurde aufgenommen.");
+		hunde.add(hund1);
 	}
 	private void oeffneTierheim() {
 		System.out.println("Tierheim wurde geöfnnet");

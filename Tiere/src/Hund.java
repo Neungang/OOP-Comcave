@@ -5,7 +5,7 @@ public class Hund {
 	private String fellFarbe;
 	private char geschlecht;
 	private int groesse;
-	public void setzeAttribute(String name, String rasse, String fellFarbe, char geschlecht, int groesse) {
+	public Hund(String name, String rasse, String fellFarbe, char geschlecht, int groesse) {
 		this.name = name;
 		this.rasse = rasse;
 		this.fellFarbe = fellFarbe;
