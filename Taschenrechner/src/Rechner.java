@@ -36,13 +36,23 @@ public class Rechner {
 		return eingabe1 % eingabe2;
 	}
 	// fakultät
-	int fakultaet(int eingabe) {
+	int fakultaet(double eingabe) {
 		int n = 1;
-		for(int i = 1; i <= n; i--) {
-			n *= (n -1);
+		for(int i = 1; i <= eingabe; i++) {
+			n *= i;
 		}
 		System.out.print(eingabe + "!" + " = ");
 		return n;
+	}
+	// Absolutwert
+	double absolut(double eingabe) {
+		System.out.print("der Absolut von " + eingabe + " =");
+		return Math.abs(eingabe);
+	}
+	// Hoch
+	double hoch(double eingabe1, double eingabe2) {
+		System.out.println(eingabe1 + " hoch " + eingabe2 + " = ");
+		return Math.pow(eingabe1, eingabe2);
 	}
 	// Aufgabe: Fragen, ob weitere Rechnungen vorgenommen werden sollen. 
 	//Wenn ja, dann wiederholen. Wenn nein, dann beenden.
