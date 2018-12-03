@@ -1,0 +1,14 @@
+
+public class Daten {
+	// Attribute
+	private int zahl1 = 1;
+	
+	// Methoden
+	// Wert auslesen: Getter
+	public int getZahl1() {
+		return this.zahl1;
+	}
+	
+	
+	// Wert verändern: Setter
+}

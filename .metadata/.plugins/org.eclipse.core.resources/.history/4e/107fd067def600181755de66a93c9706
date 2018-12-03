@@ -1,0 +1,9 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Daten dieDaten = new Daten();
+		System.out.println(dieDaten.zahl1);
+	}
+
+}

@@ -1,0 +1,13 @@
+
+public class Arrays {
+	// Attribute
+	private int zahl1 = 5;
+	private int zahl2 = 10;
+	private int zahl3 = 3;
+	private int zahl4 = 2;
+	
+	// Methoden
+	public void gebeZahlen() {
+		System.out.println(zahl1 +zahl2 + zahl3 + zahl4);
+	}
+}

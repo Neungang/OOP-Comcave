@@ -1,0 +1,11 @@
+
+public class Tierheim {
+	// Attribute
+	Hund hund1 = new Hund();
+	// Methode
+	public void start() {
+		// Unser komplette
+	}
+	
+
+}

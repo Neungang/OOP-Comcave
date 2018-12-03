@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Rechner"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="Tierheim"/>
+<fullyQualifiedTypeName name="Hund"/>
+<fullyQualifiedTypeName name="Vergleich"/>
+<fullyQualifiedTypeName name="Daten"/>
+<fullyQualifiedTypeName name="Arrays"/>
+</qualifiedTypeNameHistroy>
