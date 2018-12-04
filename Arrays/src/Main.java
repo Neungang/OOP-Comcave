@@ -3,7 +3,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		Arrays dieArrays = new Arrays();
-		dieArrays.gebeZahlen();
+		Sortieren sort = new Sortieren();
+		sort.starten();
+		//dieArrays.gebeZahlen();
 	}
 
 }
