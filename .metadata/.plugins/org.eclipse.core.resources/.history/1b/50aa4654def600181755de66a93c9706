@@ -1,7 +1,0 @@
-
-public class Daten {
-	// Attribute
-	public int zahl1 = 1;
-	
-	// Methoden
-}
