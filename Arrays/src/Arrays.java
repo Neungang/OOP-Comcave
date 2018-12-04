@@ -22,20 +22,31 @@ public class Arrays {
 		System.out.println(zahl.length);
 		System.out.println();
 		//
-		int j = 0;
+		int l = 0;
 		do {
-			System.out.print(zahl[j] + " ");
-			j += 1;
-		} while(j < zahl.length);
+			System.out.print(zahl[l] + " ");
+			l += 1;
+		} while(l < zahl.length);
 		zahl[0] = 10;
 		System.out.println();
 		for(int i = 0; i < zahl.length; i++) {
 			System.out.print(zahl[i] + " ");
 		}
 		System.out.println();
-		for(int n = 0; n< zahl.length; n++) {
-			zahl[n] = 0;
-			System.out.print(zahl[n] + " ");
+//		for(int n = 0; n< zahl.length; n++) {
+//			zahl[n] = 0;
+//			System.out.print(zahl[n] + " ");
+//		}
+		int m = 0;
+		for (int i = 0; i < zahl.length; i++) {
+			for(int j = i +1; j < zahl.length; j++) {
+				if(zahl[i] >= zahl[j]) {
+					m = zahl[i];
+					zahl[i] = zahl[j];
+					zahl[j] = m;
+				}
+			}
+			System.out.print(zahl[i] + " ");
 		}
 	}
 }
