@@ -1,4 +1,3 @@
-
 public class Fahrzeug {
 	// Attribute
 	protected int anzahlRaeder;
