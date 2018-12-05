@@ -1,5 +1,5 @@
 package p1;
 
-public class Hund implements Tiere {
+public class Hund implements Tier {
 
 }

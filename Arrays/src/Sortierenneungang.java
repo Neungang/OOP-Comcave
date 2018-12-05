@@ -1,35 +1,22 @@
 
-public class Sortieren {
-	// Attribute
-	// Initialisierung ohne Werte
-	private int[] zahlen = new int[20];
+public class Sortierenneungang {
+	private int[] zahlen = new int[45];
 
-	// Methoden
-	public void starte() {
-		// Zufallszahlen füllen
+	public void starten() {
+		gebeIntArrayFor(zahlen);
+		neueZeile();
+
+		// Array zahlen mit Zuffallszahlen
 		setzeArray(zahlen);
 		gebeIntArrayFor(zahlen);
 		neueZeile();
 
-		// Bubblesort aufrufen
 		sortiereAufsteigend(zahlen);
 		gebeIntArrayFor(zahlen);
 		neueZeile();
-
 		sortiereAbsteigend(zahlen);
 		gebeIntArrayFor(zahlen);
-		
 		neueZeile();
-		neueZeile();
-		setzeArray(zahlen);
-		gebeIntArrayFor(zahlen);
-		sortiere(zahlen, true);
-		neueZeile();
-		gebeIntArrayFor(zahlen);
-		sortiere(zahlen, false);
-		neueZeile();
-		gebeIntArrayFor(zahlen);
-		
 
 	}
 
@@ -62,8 +49,8 @@ public class Sortieren {
 	}
 
 	// Gleichnamige Methoden mit unterschiedlichen Parametern nennt man
-	// überladene Methoden.
-	// Wichtig: Datentyp und Reihenfolge ist entscheidend
+	// überladene Methode
+	// Wichtig: Datentyp und Reihfolge ist entscheiden
 	private void setzeArray(int[] array, int wert) {
 		for (int i = 0; i < array.length; i++) {
 			array[i] = wert;
@@ -83,17 +70,14 @@ public class Sortieren {
 	private void sortiereAufsteigend(int[] array) {
 		// Bubblesort
 		// 1. Zahlen tauschen
-		// 0 1 2 3 3 4 5 6 7 8 9 10 11 12
-		// array.length = 13
 //		int stelle = array.length - 2;
 //		if (array[stelle] > array[stelle + 1]) {
 //			int temp = array[stelle];
 //			array[stelle] = array[stelle + 1];
 //			array[stelle + 1] = temp;
 //		}
-
 		for (int i = 0; i < array.length; i++) {
-			for (int stelle = 0; stelle <= array.length - 2 - i; stelle++) {
+			for (int stelle = 0; stelle < array.length - 1 - i; stelle++) {
 				if (array[stelle] > array[stelle + 1]) {
 					int temp = array[stelle];
 					array[stelle] = array[stelle + 1];
@@ -101,12 +85,13 @@ public class Sortieren {
 				}
 			}
 		}
+
 	}
 
 	private void sortiereAbsteigend(int[] array) {
 		for (int i = 0; i < array.length; i++) {
-			for (int stelle = 0; stelle <= array.length - 2 - i; stelle++) {
-				if (array[stelle] < array[stelle + 1]) {
+			for (int stelle = 0; stelle < array.length - 1 - i; stelle++) {
+				if (array[stelle] <= array[stelle + 1]) {
 					int temp = array[stelle];
 					array[stelle] = array[stelle + 1];
 					array[stelle + 1] = temp;
@@ -114,27 +99,5 @@ public class Sortieren {
 			}
 		}
 	}
-	
-	private void sortiere(int[] array, boolean aufsteigend) {
-		for (int i = 0; i < array.length; i++) {
-			for (int stelle = 0; stelle <= array.length - 2 - i; stelle++) {
-				if (pruefeVergleich(array, aufsteigend, stelle)) {
-					int temp = array[stelle];
-					array[stelle] = array[stelle + 1];
-					array[stelle + 1] = temp;
-				}
-			}
-		}
-	}
-	
-	private boolean pruefeVergleich(int[] array, boolean aufsteigend, int stelle) {
-		return ((array[stelle] > array[stelle + 1]) && aufsteigend) || ((array[stelle] < array[stelle + 1]) && !aufsteigend);
-	}
-	
-	// Verschiene Algorithmen implementieren
-	// Zeit stoppen
-	// Verschiedene Längen testen
-	// Wie verhalten sich die Algorithmen mit steigender Länge.
-	// Mehrere Druchgänge
-	// Durchschnitt angeben, evtl. Standardabweichung
+
 }

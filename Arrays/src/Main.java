@@ -2,13 +2,16 @@
 public class Main {
 
 	public static void main(String[] args) {
-		Arrays dieArrays = new Arrays();
-		Sortieren sort = new Sortieren();
-//		long start = System.currentTimeMillis();
-		sort.starten();
+//		Arrays dieArrays = new Arrays();
+//		Sortierenneungang sort = new Sortierenneungang();
+////		long start = System.currentTimeMillis();
+//		sort.starten();
 //		long stop = System.currentTimeMillis();
 //		System.out.println(stop - start);
-		//dieArrays.gebeZahlen();
+		// dieArrays.gebeZahlen();
+		Sortieren sort = new Sortieren();
+
+		sort.starte();
 	}
 
 }

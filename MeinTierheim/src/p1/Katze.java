@@ -1,5 +1,5 @@
 package p1;
 
-public class Katze implements Tiere{
+public class Katze implements Tier{
 	
 }
