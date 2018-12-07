@@ -1,35 +1,35 @@
 
 public class Spieler {
-	//Attribute
+	// Attribute
 	private String name;
-	private char spileStein;
+	private char spielStein;
 	private int anzahlSiege;
 	
 	// Konstruktor
-	public Spieler(String name, char spileStein) {
-	
+	public Spieler(String name, char spielStein) {
 		this.name = name;
-		this.spileStein = spileStein;
+		this.spielStein = Character.toUpperCase(spielStein);
 		this.anzahlSiege = 0;
 	}
-	// Methode
 
+	// Methoden
 	public String getName() {
 		return name;
 	}
 
-
-
-	public char getSpileStein() {
-		return spileStein;
+	public char getSpielStein() {
+		return spielStein;
 	}
 
-	
 	public int getAnzahlSiege() {
 		return anzahlSiege;
 	}
-
-	public void speicherSiege() {
+	
+	public void speichereSieg() {
+//		this.anzahlSiege ++;
 		this.anzahlSiege += 1;
+//		this.anzahlSiege = this.anzahlSiege + 1;
 	}
+	
+	
 }
