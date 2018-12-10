@@ -15,7 +15,7 @@ public class Steuerung {
 		dieOberflaeche.gebeText("TicTacToe V1.0", true);
 
 		spielerEinlesen();
-		
+
 		feldBreite = dasSpielfeld.gebeBreite();
 		feldHoehe = dasSpielfeld.gebeHoehe();
 
@@ -24,69 +24,74 @@ public class Steuerung {
 	// Methoden
 	public void start() {
 		// Hier kommt unser Programmablauf rein
-		while(zustand < 5) {
-			switch(zustand) {
-			case 0: 
+		while (zustand < 5) {
+			switch (zustand) {
+			case 0:
 				spielfeldAusgeben();
 				feldSetzen();
 				pruefeGewonnen();
+				pruefeUnentschieden();
 				spielerWechseln();
-				
 				break;
-				// Spieler 1 gewinnt
+			// Spieler 1 gewinnt
 			case 1:
 				dieOberflaeche.gebeText(spieler[0].getName() + " hat gewonnen!", true);
+				spielfeldAusgeben();
 				zustand = 4;
 				break;
 			// Spieler 2 gewinnt
 			case 2:
 				dieOberflaeche.gebeText(spieler[1].getName() + " hat gewonnen!", true);
+				spielfeldAusgeben();
 				zustand = 4;
 				break;
 			// Unentschieden
 			case 3:
 				dieOberflaeche.gebeText("Das Spiel geht unentschieden aus!", true);
+				spielfeldAusgeben();
 				zustand = 4;
 				break;
 			// Frage nach Wiederholung
 			case 4:
-				dieOberflaeche.gebeText("Wollt ihr nochmal spielen?(J/N)", true);
-				
-				if(Character.toLowerCase(dieOberflaeche.leseZeichen()) == 'J') {
-				dasSpielfeld.setzeZurueck();  
-				zustand = 0;
-				}
-				else {
+				dieOberflaeche.gebeText("Wollt ihr nochmal spielen?(J/N): ", false);
+
+				if (Character.toLowerCase(dieOberflaeche.leseZeichen()) == 'j') {
+					dasSpielfeld.setzeZurueck();
+					zustand = 0;
+				} else {
 					dieOberflaeche.gebeText("Spiel ist zu ende", true);
 					zustand = 5;
 				}
-				
+
 				break;
 			}
 		}
+		dieOberflaeche.neueZeile(3);
+		System.out.println("Spiel beendet");
 	}
 
 	private void feldSetzen() {
 		// Aktuellen Spieler ausgeben
-		dieOberflaeche.gebeText(spieler[aktSpieler].getName() +" ist an der Reihe!", true);
+		dieOberflaeche.gebeText(spieler[aktSpieler].getName() + " ist an der Reihe!", true);
 		int tempX, tempY;
 		do {
-		dieOberflaeche.gebeText("X: ", false);
-		tempX = dieOberflaeche.leseZahl();
-		
-		dieOberflaeche.gebeText("Y: ", false);
-		tempY = dieOberflaeche.leseZahl();
-		
-		} while(tempX < 0 || tempX > this.feldBreite);
+			dieOberflaeche.gebeText("X: ", false);
+			tempX = dieOberflaeche.leseZahl();
+
+			dieOberflaeche.gebeText("Y: ", false);
+			tempY = dieOberflaeche.leseZahl();
+
+		} while (tempX < 0 || tempX >= this.feldBreite);
 		int wert = aktSpieler == 0 ? 1 : -1;
-		if(dasSpielfeld.pruefeFeld(tempX, tempY) == true) {
+		if (dasSpielfeld.pruefeFeld(tempX, tempY) == true) {
 			dasSpielfeld.setzeFeld(tempX, tempY, wert);
-		}
-		else {
+		} else {
 			dieOberflaeche.gebeText("Feld ist bereits belegt!", true);
 			spielerWechseln();
 		}
 		
+		
+
 	}
 
 	private void spielfeldAusgeben() {
@@ -123,33 +128,77 @@ public class Steuerung {
 		// Neue Zeile
 		dieOberflaeche.neueZeile(1);
 	}
+
 	private void spielerWechseln() {
 		// Spieler Wechseln
 		// Entweder if else oder ternärer Operator
-		aktSpieler = ( aktSpieler == 1) ? 0 : 1;
+		aktSpieler = (aktSpieler == 1) ? 0 : 1;
 	}
+
+	private void pruefeUnentschieden() {
+		if(dasSpielfeld.pruefeVoll() == true) {
+			zustand = 3;
+		}
+	}
+	
 	private void pruefeGewonnen() {
 		// Wir müssen das Spielfeld einholen
 		// also in der Methode zwischenspeichern
-		int[][] feld = dasSpielfeld.getSpielfeld().clone();
+		int[][] feld = dasSpielfeld.getSpielfeld();
 //		feld[0][0] = 1;
 //		dieOberflaeche.gebeSpielfeld(feld, '0', '1');
 		// prüfen ob...
 		// die Reihen 3 oder -3 ergeben
+		for (int j = 0; j < this.feldHoehe; j++) {
+			int summe = 0;
+			for (int i = 0; i < this.feldBreite; i++) {
+				summe += feld[i][j];
+				if (summe == 3) {
+					zustand = 1;
+					break;
+				} else if (summe == -3) {
+					zustand = 2;
+					break;
+				}
+			}
+		}
+		// die Spalte 3 oder -3 ergeben
+		for (int j = 0; j < this.feldBreite; j++) {
+			int summe = 0;
+			for (int i = 0; i < this.feldHoehe; i++) {
+				summe += feld[j][i];
+				if (summe == 3) {
+					zustand = 1;
+					break;
+				} else if (summe == -3) {
+					zustand = 2;
+					break;
+				}
+			}
+		}
+		// Die Diagonalen 3 oder -3 ergeben
 		int summe = 0;
-		for(int i = 0; i < 3; i++) {
-			summe += feld[i][0];
-			if(summe == 3) {
+		for (int i = 0; i < this.feldBreite; i++) {
+			summe += feld[i][i];
+			if (summe == 3) {
 				zustand = 1;
 				break;
-			}
-			else if (summe == -3) {
+			} else if (summe == -3) {
 				zustand = 2;
 				break;
 			}
 		}
-		// die Spalte 3 oder -3 ergeben
-		// Die Diagonalen 3 oder -3 ergeben
+		 summe = 0;
+		for (int i = 0; i < 3; i++) {
+			summe += feld[i][this.feldBreite - 1 - i];
+			if (summe == 3) {
+				zustand = 1;
+				break;
+			} else if (summe == -3) {
+				zustand = 2;
+				break;
+			}
+		}
 	}
 
 }

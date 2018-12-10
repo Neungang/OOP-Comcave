@@ -42,4 +42,19 @@ public class Spielfeld {
 	public int gebeHoehe() {
 		return spielfeld[1].length;
 	}
+	
+	public boolean pruefeVoll() {
+		// True, wenn Feld voll
+		// False, wenn Feld frei
+		for(int y = 0; y < spielfeld[1].length; y++) {
+			for(int x = 0; x < spielfeld.length; x++) {
+				if(spielfeld[x][y] == 0) {
+					return false;
+				}
+					
+			}
+			
+		}
+		return true;
+	}
 }
